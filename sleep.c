@@ -10,9 +10,10 @@
 
 static void sig_alrm(int signo)
 {
-
+	printf("%d is caught\n" , signo);
+	return 0;
 }
-unsigned int Mysleep(unsigned int nsecs)
+unsigned int sleep(unsigned int nsecs)
 {
 	struct sigaction newact , oldact;
 	sigset_t newmask , oldmask , suspmask;
@@ -48,8 +49,8 @@ int main(int argc, char const *argv[])
 	while(1)
 	{
 		printf("^-^\t");
-		fflush(NULL);
-		Mysleep(3);
+		fflush(stdout);
+		sleep(3);
 	}
 	return 0;
 }
